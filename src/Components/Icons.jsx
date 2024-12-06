@@ -7,7 +7,7 @@ import KotlinSvg from "../assets/KotlinSvg"
 
 export default function Icons(){
     return(
-        <div className="w-full xl:w-2/3 mx-auto grid grid-cols-3 gap-3 font-sans pt-12">
+        <div className=" mx-auto grid grid-cols-3 gap-3 font-sans pt-12">
         <div class="flex flex-col justify-center items-center xl:border-l-2 border-solid border-black">
             <PhpSvg class="md:w-40 md:h-40 w-32 h-32 p-1"/>
             <h1>PHP</h1></div>

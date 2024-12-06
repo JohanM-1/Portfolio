@@ -15,7 +15,8 @@ import imgProyect1 from "./imagenes/FastApiCRUD1.png"
 export default function HomePage() {
     return (
 
-        <div className="px-4">
+        <div className=" flex items-center justify-center">
+            <div className="w-full xl:w-2/3 flex flex-col  px-4 mt-40">
             <Navbar/>
             <Bienvenida/>
             <Icons/>
@@ -28,6 +29,7 @@ export default function HomePage() {
             imgsrc={imgProyect1}
             />
        
+        </div>
         </div>
 
     )

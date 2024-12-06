@@ -4,7 +4,7 @@ import person from '../imagenes/PersonaIcon.png';
 
 export default function Bienvenida(){
     return(
-        <div class="w-full xl:w-2/3 mx-auto grid grid-cols-5 gap-5 font-sans">
+        <div class=" mx-auto grid grid-cols-5 gap-5 font-sans">
         <section class="col-span-5 md:col-span-2 md:flex md:flex-col text-center pt-16">
             <div class="flex justify-center items-center">
                 <img class="p-1 max-w-52 rounded-3xl" src={person} alt="Imagen de Persona"/>
