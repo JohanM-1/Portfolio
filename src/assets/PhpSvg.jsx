@@ -1,4 +1,4 @@
-import * as React from "react"
+
 const PhpSvg = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -8,7 +8,7 @@ const PhpSvg = (props) => (
     viewBox="0 0 32 32"
     {...props}
   >
-    <circle cx={16} cy={16} r={14} fill="#8892BF" />
+    <circle cx={16} cy={16} r={16} fill="#8892BF" />
     <path
       fill="#fff"
       d="M14.44 10h1.68l-.476 2.524h1.51c.828.018 1.445.203 1.85.555.414.353.536 1.022.366 2.01l-.816 4.4H16.85l.779-4.203c.08-.44.057-.753-.073-.938-.13-.185-.41-.278-.84-.278l-1.352-.013-.998 5.432h-1.68L14.44 10Z"
