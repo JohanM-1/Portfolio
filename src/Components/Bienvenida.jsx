@@ -76,7 +76,7 @@ export default function Bienvenida(){
                     
                     <div className="pt-4">
                         <a 
-                            href="/Cv Python johan Monroy.pdf" 
+                            href="dist/Cv Python johan Monroy.pdf" 
                             download="CV_Johan_Monroy.pdf"
                             className={`inline-flex items-center px-4 py-2 rounded-lg ${
                                 darkMode 
