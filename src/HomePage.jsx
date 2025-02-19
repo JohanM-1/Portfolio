@@ -178,8 +178,8 @@ export default function HomePage() {
                             compName3="MRTK3"
                             descripcion="Aplicación de realidad mixta desarrollada para HoloLens 2 durante mis prácticas en Factoryim. El proyecto integra elementos interactivos, multimedia y modelos 3D para crear una experiencia inmersiva basada en cuentos de caminos."
                             imgsrc={imgProyecto2}
-                            videsrc="https://uniminuto0-my.sharepoint.com/personal/johan_monroy-f_uniminuto_edu_co/_layouts/15/embed.aspx?UniqueId=36d4eaee-a8a0-4ba7-910f-5704a55e3274&embed=%7B%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create"
-
+                            videsrc="https://www.youtube.com/embed/VVrLewMaAME"
+                            
                             etapas={[
                                 {
                                     titulo: "Desarrollo con Unity y MRTK3",
