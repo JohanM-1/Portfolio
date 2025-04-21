@@ -19,27 +19,28 @@ import CsharpSvg from "./assets/CsharpSvg";
 import Mrtk3Svg from "./assets/Mrtk3Svg";
 import SobreMi from "./Components/SobreMi"
 import DjangoSvg from "./assets/DjangoSvg";
-import DockerSvg from "./assets/DockerSvg";
-import imgProyecto3 from "./imagenes/DjangoAdmin.png";
+import TailwindSvg from "./assets/TailwindSvg";
+import AwsSvg from "./assets/AwsSvg.jsx";
+import imgTaskMaster from "./imagenes/TaskMaster.png";
 
 export default function HomePage() {
     const { darkMode } = useTheme();
-    
+
     return (
         <>
-            <Navbar/>
+
+            <Navbar />
+
             <main className="container mx-auto sm:x-4 pt-24 pb-12">
-                <div className={`max-w-4xl mx-auto ${
-                    darkMode 
-                        ? 'bg-gray-900/30' 
+                <div className={`max-w-4xl mx-auto ${darkMode
+                        ? 'bg-gray-900/30'
                         : 'bg-white/60'
-                } rounded-xl backdrop-blur-sm shadow-lg ${
-                    darkMode 
-                        ? 'border-gray-900 sm:border' 
+                    } rounded-xl backdrop-blur-sm shadow-lg ${darkMode
+                        ? 'border-gray-900 sm:border'
                         : 'border-gray-200 sm:border'
-                } sm:px-4`}>
-                    <Bienvenida/>
-                    
+                    } sm:px-4`}>
+                    <Bienvenida />
+
                     <section id="experiencia" className="px-2 sm:px-4 py-8 sm:py-12">
                         <h2 className={`text-3xl font-semibold ${darkMode ? 'text-white/80' : 'text-black/80'} mb-6`}>
                             Experiencia
@@ -52,62 +53,75 @@ export default function HomePage() {
                             <CodeSvg className="w-10 h-10" />
                             Proyectos
                         </h2>
-                        <Proyecto 
-                            titulo="Snake Meta - Panel Administrativo" 
-                            component1={DjangoSvg} 
+                        <Proyecto
+                            titulo="TaskMaster AI - Plataforma de Gestión de Proyectos con IA"
+                            component1={DjangoSvg}
                             compName1="Django"
-                            component2={PostgresSvg} 
-                            compName2="PostgreSQL"
-                            component3={DockerSvg}
-                            compName3="Docker"
-                            descripcion="Panel administrativo desarrollado con Django para la gestión de datos de serpientes. Sistema robusto para importación/exportación de datos en formatos CSV y XLSX, con autenticación y autorización integrada."
-                            frontendLink="https://github.com/JohanM-1/Django-Admin-SM"
-                            imgsrc={imgProyecto3}
+                            component2={TailwindSvg}
+                            compName2="TailwindCSS"
+                            component3={AwsSvg}
+                            compName3="AWS"
+                            descripcion="Plataforma de colaboración en tiempo real que utiliza inteligencia artificial para optimizar la gestión de proyectos de desarrollo de software, automatizando tareas y mejorando la productividad del equipo."
+                            fullStackLink="https://github.com/JohanM-1/TaskMaster-AI"
+                            previewLink="https://taskmaster-ai.techcreator.org/"
+                            imgsrc={imgTaskMaster}
                             etapas={[
                                 {
-                                    titulo: "Backend con Django",
-                                    descripcion: "Sistema administrativo completo desarrollado con Django y PostgreSQL.",
+                                    titulo: "Backend (Django)",
+                                    descripcion: "API robusta desarrollada con Django y Django REST framework para gestionar proyectos y tareas con integración de IA.",
                                     tecnologias: [
-                                        "Django Admin Interface",
-                                        "PostgreSQL Database",
-                                        "Docker & Docker Compose",
-                                        "CSV/XLSX Import/Export",
-                                        "Authentication System",
-                                        "Custom Admin Actions"
+                                        "Django 5.0.x",
+                                        "Django REST framework",
+                                        "Celery",
+                                        "OpenAI Integration",
+                                        "PostgreSQL",
+                                        "AWS EC2 Deployment"
                                     ]
                                 },
                                 {
-                                    titulo: "Características Implementadas",
-                                    descripcion: "Sistema completo de gestión de datos con funcionalidades avanzadas.",
+                                    titulo: "Frontend (TailwindCSS)",
+                                    descripcion: "Interfaz moderna y responsive con modo oscuro/claro y componentes interactivos.",
                                     tecnologias: [
-                                        "Gestión de datos de serpientes",
-                                        "Importación masiva de datos",
-                                        "Exportación en múltiples formatos",
-                                        "Sistema de logs",
-                                        "Interfaz administrativa personalizada",
-                                        "Gestión de usuarios y permisos"
+                                        "TailwindCSS",
+                                        "JavaScript",
+                                        "Dark/Light Mode",
+                                        "Responsive Design",
+                                        "Real-time Updates",
+                                        "Interactive Components"
                                     ]
                                 },
                                 {
-                                    titulo: "Infraestructura",
-                                    descripcion: "Configuración robusta usando Docker y servicios modernos.",
+                                    titulo: "Características Principales",
+                                    descripcion: "Sistema completo de gestión de proyectos con capacidades de IA.",
                                     tecnologias: [
-                                        "Contenedores Docker",
-                                        "PostgreSQL Database",
-                                        "Environment Variables",
-                                        "Logging System",
-                                        "Backup System",
-                                        "Development/Production Environments"
+                                        "Generación de estructuras con IA",
+                                        "Colaboración en tiempo real",
+                                        "Control de versiones",
+                                        "Sistema de suscripciones",
+                                        "Análisis automatizado de requerimientos",
+                                        "Gestión de tareas inteligente"
+                                    ]
+                                },
+                                {
+                                    titulo: "Infraestructura y Despliegue",
+                                    descripcion: "Implementación robusta en la nube con AWS y prácticas DevOps.",
+                                    tecnologias: [
+                                        "AWS EC2 Instances",
+                                        "Docker Containers",
+                                        "CI/CD con GitHub Actions",
+                                        "Load Balancing",
+                                        "Auto-scaling",
+                                        "Monitoring & Logging"
                                     ]
                                 }
                             ]}
                         />
-                        
-                        <Proyecto 
-                            titulo="Meta Snake - Aplicación de Identificación de Serpientes" 
-                            component1={FlutterSvg} 
+
+                        <Proyecto
+                            titulo="Meta Snake - Aplicación de Identificación de Serpientes"
+                            component1={FlutterSvg}
                             compName1="Flutter"
-                            component2={FastApiSvg} 
+                            component2={FastApiSvg}
                             compName2="FastAPI"
                             component3={PostgresSvg}
                             compName3="PostgreSQL"
@@ -167,19 +181,19 @@ export default function HomePage() {
                                 }
                             ]}
                         />
-                        
-                        <Proyecto 
-                            titulo="Realidad Mixta - Cuentos de Caminos" 
-                            component1={UnityLogo} 
+
+                        <Proyecto
+                            titulo="Realidad Mixta - Cuentos de Caminos"
+                            component1={UnityLogo}
                             compName1="Unity"
-                            component2={CsharpSvg} 
+                            component2={CsharpSvg}
                             compName2="C#"
                             component3={Mrtk3Svg}
                             compName3="MRTK3"
                             descripcion="Aplicación de realidad mixta desarrollada para HoloLens 2 durante mis prácticas en Factoryim. El proyecto integra elementos interactivos, multimedia y modelos 3D para crear una experiencia inmersiva basada en cuentos de caminos."
                             imgsrc={imgProyecto2}
                             videsrc="https://www.youtube.com/embed/VVrLewMaAME"
-                            
+
                             etapas={[
                                 {
                                     titulo: "Desarrollo con Unity y MRTK3",
@@ -220,7 +234,7 @@ export default function HomePage() {
                             ]}
                         />
                     </section>
-                    <Icons/>
+                    <Icons />
                     <section id="sobre-mi" className="px-2 sm:px-4 py-8 sm:py-12">
                         <h2 className={`text-3xl font-semibold ${darkMode ? 'text-white/80' : 'text-black/80'} mb-6`}>
                             Sobre Mí
@@ -232,40 +246,37 @@ export default function HomePage() {
                             Contacto
                         </h2>
                         <div className="space-y-4">
-                            <a href="mailto:johan16231@gmail.com" 
-                               className={`block p-4 rounded-lg border ${
-                                   darkMode 
-                                       ? 'border-gray-700 hover:border-blue-500 bg-gray-800/30' 
-                                       : 'border-gray-300 hover:border-blue-500 bg-white/80'
-                               } backdrop-blur-sm transition-colors shadow-sm hover:shadow-md`}
+                            <a href="mailto:johan16231@gmail.com"
+                                className={`block p-4 rounded-lg border ${darkMode
+                                        ? 'border-gray-700 hover:border-blue-500 bg-gray-800/30'
+                                        : 'border-gray-300 hover:border-blue-500 bg-white/80'
+                                    } backdrop-blur-sm transition-colors shadow-sm hover:shadow-md`}
                             >
                                 <div className="flex items-center gap-3">
                                     <GmailSvg className="w-6 h-6 text-red-500" />
                                     <span>johan16231@gmail.com</span>
                                 </div>
                             </a>
-                            <a href="https://github.com/JohanM-1" 
-                               target="_blank" 
-                               rel="noopener noreferrer"
-                               className={`block p-4 rounded-lg border ${
-                                   darkMode 
-                                       ? 'border-gray-700 hover:border-blue-500 bg-gray-800/30' 
-                                       : 'border-gray-300 hover:border-blue-500 bg-white/80'
-                               } backdrop-blur-sm transition-colors shadow-sm hover:shadow-md`}
+                            <a href="https://github.com/JohanM-1"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`block p-4 rounded-lg border ${darkMode
+                                        ? 'border-gray-700 hover:border-blue-500 bg-gray-800/30'
+                                        : 'border-gray-300 hover:border-blue-500 bg-white/80'
+                                    } backdrop-blur-sm transition-colors shadow-sm hover:shadow-md`}
                             >
                                 <div className="flex items-center gap-3">
                                     <GithubSvg className="w-6 h-6" />
                                     <span>GitHub</span>
                                 </div>
                             </a>
-                            <a href="https://www.linkedin.com/in/johan-monroy/" 
-                               target="_blank" 
-                               rel="noopener noreferrer"
-                               className={`block p-4 rounded-lg border ${
-                                   darkMode 
-                                       ? 'border-gray-700 hover:border-blue-500 bg-gray-800/30' 
-                                       : 'border-gray-300 hover:border-blue-500 bg-white/80'
-                               } backdrop-blur-sm transition-colors shadow-sm hover:shadow-md`}
+                            <a href="https://www.linkedin.com/in/johan-monroy/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`block p-4 rounded-lg border ${darkMode
+                                        ? 'border-gray-700 hover:border-blue-500 bg-gray-800/30'
+                                        : 'border-gray-300 hover:border-blue-500 bg-white/80'
+                                    } backdrop-blur-sm transition-colors shadow-sm hover:shadow-md`}
                             >
                                 <div className="flex items-center gap-3">
                                     <LinkedinSvg className="w-6 h-6" />

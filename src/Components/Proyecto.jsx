@@ -12,6 +12,8 @@ export default function Proyecto({
   descripcion = "Ejemplo descripcion",
   frontendLink,
   backendLink,
+  previewLink, // Add this new prop
+  fullStackLink, // Add this new prop
   component1: Svg1,
   component2: Svg2,
   component3: Svg3,
@@ -67,9 +69,9 @@ export default function Proyecto({
           </p>
 
           <footer className="flex items-center gap-4">
-            {frontendLink && (
+          {previewLink && (
               <a 
-                href={frontendLink} 
+                href={previewLink} 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className={`
@@ -81,14 +83,27 @@ export default function Proyecto({
                   }
                 `}
               >
-                <GithubSvg className="w-5 h-5" />
-                <span>Frontend</span>
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  className="w-5 h-5"
+                  strokeWidth="2"
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                >
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+                <span>Preview</span>
               </a>
             )}
-            
-            {backendLink && (
+
+            {fullStackLink ? (
               <a 
-                href={backendLink} 
+                href={fullStackLink} 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className={`
@@ -100,9 +115,60 @@ export default function Proyecto({
                   }
                 `}
               >
-                <GithubSvg className="w-5 h-5" />
-                <span>Backend</span>
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  className="w-5 h-5"
+                  strokeWidth="2"
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                >
+                  <path d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7m0-18H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7m0-18v18"/>
+                </svg>
+                <span>Full Stack</span>
               </a>
+            ) : (
+              <>
+                {frontendLink && (
+                  <a 
+                    href={frontendLink} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className={`
+                      inline-flex items-center gap-2 px-4 py-2
+                      transition duration-300 rounded-xl border
+                      ${darkMode
+                        ? 'bg-gray-800 hover:bg-gray-700 text-white border-gray-600 hover:border-gray-500'
+                        : 'bg-gray-100 hover:bg-gray-200 text-gray-900 border-gray-300 hover:border-gray-400'
+                      }
+                    `}
+                  >
+                    <GithubSvg className="w-5 h-5" />
+                    <span>Frontend</span>
+                  </a>
+                )}
+                
+                {backendLink && (
+                  <a 
+                    href={backendLink} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className={`
+                      inline-flex items-center gap-2 px-4 py-2
+                      transition duration-300 rounded-xl border
+                      ${darkMode
+                        ? 'bg-gray-800 hover:bg-gray-700 text-white border-gray-600 hover:border-gray-500'
+                        : 'bg-gray-100 hover:bg-gray-200 text-gray-900 border-gray-300 hover:border-gray-400'
+                      }
+                    `}
+                  >
+                    <GithubSvg className="w-5 h-5" />
+                    <span>Backend</span>
+                  </a>
+                )}
+              </>
             )}
           </footer>
         </section>
@@ -118,6 +184,8 @@ export default function Proyecto({
           videsrc,
           frontendLink,
           backendLink,
+          previewLink,
+          fullStackLink, // Add this new prop
           etapas
         }}
       />
