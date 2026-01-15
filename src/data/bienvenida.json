@@ -1,0 +1,30 @@
+{
+  "profile": {
+    "name": "Johan Alexander Monroy Fernandez",
+    "title": "Tecnólogo en Desarrollo de Software"
+  },
+  "hero": {
+    "greeting": "Johan Alexander.",
+    "name": "Desarrollo productos web y móviles, del backend a la experiencia final.",
+    "subtitle": "",
+    "description": ""
+  },
+  "about": [
+    "Hola, soy Johan, un desarrollador apasionado por crear cosas que viven en internet. Mi interés en el desarrollo web comenzó cuando decidí crear una aplicación para identificar serpientes en mi región, ¡lo que me enseñó mucho sobre Python y APIs!",
+    "Hoy en día, he tenido el privilegio de trabajar en una <a href='https://www.factoryai.io/' target='_blank' class='text-blue-500 hover:underline'>agencia de desarrollo</a> y contribuir a proyectos innovadores como aplicaciones de realidad mixta.",
+    "Mi enfoque principal estos días es construir productos y experiencias digitales accesibles e inclusivas para una variedad de clientes.",
+    "Aquí hay algunas tecnologías con las que he estado trabajando recientemente:"
+  ],
+  "recentTechnologies": [
+    "Python",
+    "Django / FastAPI",
+    "React",
+    "Tailwind CSS",
+    "Flutter",
+    "SQL (PostgreSQL)"
+  ],
+  "cv": {
+    "text": "Ver resumen completo",
+    "url": "/Portfolio/Johan_Monroy_CV (1).pdf"
+  }
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "role": "Desarrollador de Software",
+    "company": "Factoryim",
+    "period": "07.2024 - Actual",
+    "description": [
+      "CulturaClick: Plataforma de gestión de contenidos con el reto de integrar procesos de pago y flujos editoriales complejos en un entorno administrativo. Se diseñaron soluciones personalizadas para automatizar notificaciones, estructurar contenido dinámico y garantizar consistencia en la visualización de la información. El resultado fue una plataforma más estable, flexible y fácil de administrar, desarrollada bajo metodología Scrum en colaboración con un desarrollador senior.",
+      "Knowms: Proyecto orientado a la administración de contenidos donde el principal desafío fue mantener y extender funcionalidades existentes sin afectar la operación del sistema. Se trabajó en la adaptación de módulos, soporte al backoffice y resolución de incidencias, asegurando estabilidad, continuidad del servicio y control de versiones mediante buenas prácticas.",
+      "Intranet: Plataforma corporativa sometida a validación funcional con el reto de garantizar flujos de autenticación seguros y una correcta gestión de roles y permisos. Se ejecutaron pruebas exhaustivas, se documentaron incidencias y se validaron mejoras, incrementando la confiabilidad del sistema para los usuarios internos.",
+      "Salopem: Plataforma ecommerce evaluada antes de su lanzamiento, enfrentando el reto de detectar fallos críticos en flujos de compra y pago. Se realizaron pruebas funcionales y de validación de datos, permitiendo identificar errores clave y asegurar una salida a producción estable y confiable."
+    ]
+  },
+  {
+    "role": "Practicante Desarrollador",
+    "company": "Factoryim",
+    "period": "03.2024 - 05.2024",
+    "description": [
+      "Desarrollo de MVP en Unity utilizando C#",
+      "Creación de aplicación de realidad mixta para HoloLens 2",
+      "Impacto significativo en ferias tecnológicas con soluciones innovadoras"
+    ]
+  }
+]

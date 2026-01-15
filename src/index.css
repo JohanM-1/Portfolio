@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* 
+  Asegurar que el cursor nativo sea visible por defecto.
+  La librería react-animated-cursor sobrescribe esto automáticamente
+  cuando se carga correctamente. Si falla (Brave, NoScript, Móvil),
+  este estilo prevalecerá o asegurará visibilidad.
+*/
+body, a, button, input {
+  cursor: auto;
+}
+
+@media (pointer: coarse) {
+  /* En dispositivos táctiles, forzar cursor nativo siempre */
+  * {
+    cursor: auto !important;
+  }
+}

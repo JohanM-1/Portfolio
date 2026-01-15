@@ -1,0 +1,23 @@
+[
+  {
+    "platform": "GitHub",
+    "value": "GitHub",
+    "url": "https://github.com/JohanM-1",
+    "iconKey": "Github",
+    "textColor": ""
+  },
+  {
+    "platform": "LinkedIn",
+    "value": "LinkedIn",
+    "url": "https://www.linkedin.com/in/johan-monroy/",
+    "iconKey": "Linkedin",
+    "textColor": ""
+  },
+  {
+    "platform": "Email",
+    "value": "johan16231@gmail.com",
+    "url": "mailto:johan16231@gmail.com",
+    "iconKey": "Gmail",
+    "textColor": ""
+  }
+]
