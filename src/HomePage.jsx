@@ -7,12 +7,19 @@ import Proyecto from "./Components/Proyecto"
 import { useTheme } from "./context/ThemeContext";
 import Experiencia from "./Components/Experiencia"
 import proyectosData from "./data/proyectos.json";
+import proyectosPortfolio from "./data/proyectos_portfolio.json";
 import { assets } from "./data/assetsMap";
 import SocialLinks from "./Components/SocialLinks";
+import TechSelector from "./Components/TechSelector";
 
 export default function HomePage() {
     const { darkMode } = useTheme();
     const [showCursor, setShowCursor] = useState(false);
+    const [tecnologiaSeleccionada, setTecnologiaSeleccionada] = useState("flutter");
+    
+    // Get projects for selected technology
+    const techData = proyectosPortfolio.tecnologias.find(t => t.id === tecnologiaSeleccionada);
+    const proyectosFiltrados = techData?.proyectos || [];
 
     useEffect(() => {
         // Solo mostrar cursor personalizado en dispositivos que soportan hover (mouse)
@@ -85,13 +92,21 @@ export default function HomePage() {
                                     Proyectos
                                     <div className={`h-px bg-gray-700 flex-grow max-w-xs ml-4 ${darkMode ? 'bg-gray-700' : 'bg-gray-300'}`}></div>
                                 </h2>
+                                
+                                {/* Tech Selector */}
+                                <TechSelector 
+                                    tecnologias={proyectosPortfolio.tecnologias}
+                                    tecnologiaSeleccionada={tecnologiaSeleccionada}
+                                    setTecnologiaSeleccionada={setTecnologiaSeleccionada}
+                                />
+                                
                                 <div className="space-y-12">
-                                    {proyectosData.map((proj, index) => (
+                                    {proyectosFiltrados.map((proj, index) => (
                                         <Proyecto
                                             key={index}
                                             titulo={proj.title}
                                             descripcion={proj.description}
-                                            imgsrc={assets.images[proj.imageKey]}
+                                            imgsrc={assets.images[proj.imageKey] || assets.images.Default}
                                             videsrc={proj.videoSrc}
                                             frontendLink={proj.links?.frontend}
                                             backendLink={proj.links?.backend}
@@ -102,6 +117,8 @@ export default function HomePage() {
                                                 name: tech.name
                                             }))}
                                             etapas={proj.stages}
+                                            habilidades={proj.habilidades || []}
+                                            valor={proj.valor || ""}
                                         />
                                     ))}
                                 </div>

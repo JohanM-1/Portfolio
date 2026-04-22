@@ -1,0 +1,257 @@
+{
+  "tecnologias": [
+    {
+      "id": "drupal",
+      "nombre": "Drupal",
+      "icono": "Drupal",
+      "proyectos": [
+        {
+          "title": "Salopem - Ecommerce con Drupal Commerce",
+          "description": "Plataforma ecommerce con frontend desacoplado y backend orientado a servicios para venta de productos.",
+          "imageKey": "Salopem",
+          "links": {
+            "preview": "https://salopem.com"
+          },
+          "techIcons": [
+            { "key": "Drupal", "name": "Drupal Commerce" },
+            { "key": "Angular", "name": "Angular" }
+          ],
+          "stages": [
+            {
+              "title": "Ecommerce Backend",
+              "description": "Gestión de productos, inventario y procesadores de pago.",
+              "technologies": [
+                "Drupal Commerce",
+                "Drupal 10.x",
+                "Payment APIs",
+                "Stripe Integration",
+                "Inventory Management"
+              ]
+            },
+            {
+              "title": "Frontend Ecommerce",
+              "description": "Tienda online con catálogo y checkout optimizado.",
+              "technologies": [
+                "Angular",
+                "NgRx",
+                "Lazy Loading",
+                "Optimized Cart",
+                "Server-side Validation"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Intranet Cofrem - Plataforma Corporativa",
+          "description": "Plataforma web corporativa con frontend desacoplado y backend centralizado para gestión interna.",
+          "imageKey": "Intranet",
+          "links": {},
+          "techIcons": [
+            { "key": "Drupal", "name": "Drupal" },
+            { "key": "Angular", "name": "Angular" }
+          ],
+          "stages": [
+            {
+              "title": "Autenticación y Seguridad",
+              "description": "Sistema de autenticación Google OAuth.",
+              "technologies": [
+                "Google OAuth 2.0",
+                "JWT Tokens",
+                "Role-based Access",
+                "Session Management"
+              ]
+            },
+            {
+              "title": "Gestión de Contenidos",
+              "description": "CMS corporativo para noticias y documentos.",
+              "technologies": [
+                "Drupal Entities",
+                "Workbench Moderation",
+                "Media Library",
+                "Node Access"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Módulos Custom en Drupal",
+          "description": "Desarrollo full-stack de módulos personalizados para plataformas web empresariales.",
+          "imageKey": "DrupalModules",
+          "links": {},
+          "techIcons": [
+            { "key": "Drupal", "name": "Drupal" }
+          ],
+          "stages": [
+            {
+              "title": "Desarrollo de Módulos",
+              "description": "Lógica backend y servicios REST personalizados.",
+              "technologies": [
+                "Drupal Hooks",
+                "Custom Plugins",
+                "RESTful Web Services",
+                "Entity API",
+                "Form API"
+              ]
+            },
+            {
+              "title": "Integración",
+              "description": "Integración con frontends desacoplados.",
+              "technologies": [
+                "JSON:API",
+                "OAuth2",
+                "External APIs",
+                "Data Serialization"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flutter",
+      "nombre": "Flutter",
+      "icono": "Flutter",
+      "proyectos": [
+        {
+          "title": "TodoAlDía - App Financiera Personal",
+          "description": "Aplicación financiera personal para registrar gastos e ingresos utilizando voz como método de entrada principal.",
+          "imageKey": "TodoAlDia",
+          "links": {
+            "preview": "https://todo-al-dia.cloudnova.win/",
+            "frontend": "https://github.com/JohanM-1/todo-al-dia/tree/main/app_flutter"
+          },
+          "techIcons": [
+            { "key": "Flutter", "name": "Flutter" }
+          ],
+          "habilidades": [
+            "Arquitectura Clean / Hexagonal",
+            "Offline-first / Local-first",
+            "Drift (SQLite) base de datos local",
+            "Cache y persistencia local",
+            "State management (BLoC)",
+            "Voice recognition",
+            "Gestión de estado offline",
+            "Publicación en stores (Play Store)",
+            "Mantenimiento post-lanzamiento",
+            "Lectura de logs y debugging",
+            "Identificación y resolución de bugs"
+          ],
+          "valor": "App funcional sin conexión, datos locales seguros, experiencia fluida. Publicada y mantenida.",
+          "stages": [
+            {
+              "title": "Arquitectura Clean",
+              "description": "Estructura basada en Clean Architecture con separación de capas.",
+              "technologies": [
+                "Clean Architecture",
+                "BLoC Pattern",
+                "Drift Database",
+                "GetIt DI",
+                "Dart 3.x"
+              ]
+            },
+            {
+              "title": "Características MVP",
+              "description": "Funcionalidades principales implementadas.",
+              "technologies": [
+                "Voice Recognition",
+                "CRUD Movimientos",
+                "Gestión de Categorías",
+                "Presupuestos",
+                "Metas de Ahorro",
+                "Export CSV"
+              ]
+            },
+            {
+              "title": "Dashboard y Analytics",
+              "description": "Visualización de gastos y balances.",
+              "technologies": [
+                "Gráficos por Categoría",
+                "Balance en Tiempo Real",
+                "Historial de Movimientos",
+                "Modo Offline"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Meta Snake - App de Identificación de Serpientes",
+          "description": "Aplicación móvil full-stack para identificación y gestión de información sobre serpientes.",
+          "imageKey": "SnakeMeta",
+          "links": {
+            "frontend": "https://github.com/JuanRojasDev/Snake_Flutter",
+            "backend": "https://github.com/JohanM-1/Back"
+          },
+          "techIcons": [
+            { "key": "Flutter", "name": "Flutter" },
+            { "key": "FastApi", "name": "FastAPI" },
+            { "key": "Postgres", "name": "PostgreSQL" }
+          ],
+          "stages": [
+            {
+              "title": "Backend (FastAPI)",
+              "description": "API robusta para gestión de serpientes y autenticación.",
+              "technologies": [
+                "FastAPI y Uvicorn",
+                "PostgreSQL y SQLAlchemy async",
+                "Firebase Authentication",
+                "JWT y OAuth2",
+                "Pydantic"
+              ]
+            },
+            {
+              "title": "Frontend (Flutter)",
+              "description": "Aplicación móvil multiplataforma.",
+              "technologies": [
+                "Flutter Framework",
+                "Provider",
+                "Dio HTTP Client",
+                "Firebase Auth",
+                "Google Sign In"
+              ]
+            },
+            {
+              "title": "Características",
+              "description": "Funcionalidades principales.",
+              "technologies": [
+                "Autenticación Múltiple",
+                "Geolocalización",
+                "Sistema de Roles",
+                "Modo Offline",
+                "Reportes"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "java-springboot",
+      "nombre": "Java Spring Boot",
+      "icono": "JavaSpringBoot",
+      "proyectos": [
+        {
+          "title": "Proyecto Java Spring Boot - En Desarrollo",
+          "description": "Próximamente más proyectos en Java Spring Boot. Actualmente aprendiendo y construyendo.",
+          "imageKey": "Default",
+          "links": {},
+          "techIcons": [
+            { "key": "JavaSpringBoot", "name": "Spring Boot" }
+          ],
+          "stages": [
+            {
+              "title": "En Construcción",
+              "description": "Proyecto en desarrollo activo.",
+              "technologies": [
+                "Spring Boot 3.x",
+                "Spring Data JPA",
+                "Spring Security",
+                "REST APIs",
+                "PostgreSQL"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -62,6 +62,36 @@ export default function ProyectoModal({ isOpen, setIsOpen, proyecto }) {
               {proyecto.descripcion}
             </p>
 
+            {/* Habilidades */}
+            {proyecto.habilidades && proyecto.habilidades.length > 0 && (
+              <div className="mb-6">
+                <span className={`text-xs font-mono uppercase tracking-wider ${darkMode ? 'text-gray-500' : 'text-gray-500'}`}>
+                  Habilidades
+                </span>
+                <ul className="mt-2 flex flex-wrap gap-x-3 gap-y-1">
+                  {proyecto.habilidades.map((hab, hIndex) => (
+                    <li 
+                      key={hIndex}
+                      className={`text-sm font-mono ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}
+                    >
+                      {hab}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Valor */}
+            {proyecto.valor && (
+              <div className={`mb-6 text-sm font-mono ${
+                darkMode 
+                  ? 'text-green-400' 
+                  : 'text-green-600'
+              }`}>
+                ✓ {proyecto.valor}
+              </div>
+            )}
+
             {/* Links Section */}
             <div className="flex flex-wrap gap-4 mb-8">
                 {proyecto.previewLink && (

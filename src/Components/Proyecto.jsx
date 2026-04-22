@@ -11,10 +11,12 @@ export default function Proyecto({
   videsrc,
   previewLink,
   fullStackLink,
-  frontendLink,
   backendLink,
+  frontendLink,
   techIcons = [],
-  etapas = []
+  etapas = [],
+  habilidades = [],
+  valor = ""
 }) {
   const { darkMode } = useTheme();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -75,6 +77,42 @@ export default function Proyecto({
               </motion.li>
             ))}
           </ul>
+          
+          {/* Habilidades - minimal inline */}
+          {habilidades && habilidades.length > 0 && (
+            <div className="mt-2">
+              <ul className="flex flex-wrap gap-1">
+                {habilidades.slice(0, 5).map((hab, hIndex) => (
+                  <li 
+                    key={hIndex}
+                    className={`text-xs font-mono ${
+                      darkMode 
+                        ? 'text-gray-500' 
+                        : 'text-gray-500'
+                    }`}
+                  >
+                    {hab}{hIndex < Math.min(habilidades.length, 5) - 1 ? ',' : ''}
+                  </li>
+                ))}
+                {habilidades.length > 5 && (
+                  <li className={`text-xs font-mono ${darkMode ? 'text-gray-500' : 'text-gray-500'}`}>
+                    +{habilidades.length - 5}
+                  </li>
+                )}
+              </ul>
+            </div>
+          )}
+          
+          {/* Valor - minimal inline */}
+          {valor && (
+            <div className={`mt-1 text-xs font-mono ${
+              darkMode 
+                ? 'text-green-400' 
+                : 'text-green-600'
+            }`}>
+              ✓ {valor}
+            </div>
+          )}
         </div>
       </motion.div>
 
@@ -90,7 +128,9 @@ export default function Proyecto({
           backendLink,
           previewLink,
           fullStackLink,
-          etapas
+          etapas,
+          habilidades,
+          valor
         }}
       />
     </>

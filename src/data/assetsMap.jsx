@@ -11,12 +11,18 @@ import Mrtk3Svg from "../assets/Mrtk3Svg";
 import DjangoSvg from "../assets/DjangoSvg";
 import TailwindSvg from "../assets/TailwindSvg";
 import AwsSvg from "../assets/AwsSvg";
+import JavaSpringBootSvg from "../assets/JavaSpringBootSvg";
+import DrupalSvg from "../assets/DrupalSvg";
+import AngularSvg from "../assets/AngularSvg";
 
 import imgSnakeMeta from "../imagenes/SnakeMeta.jpg";
 import imgHololens from "../imagenes/HololensApp.png";
 import imgTaskMaster from "../imagenes/TaskMaster.png";
 import imgPersona from "../imagenes/PersonaIcon.png";
 import imgDefault from "../imagenes/EjemploProyecto.png";
+import imgTodoAlDia from "../imagenes/todo-al-dia.png";
+import imgSalopem from "../imagenes/salopem.png";
+import imgIntranet from "../imagenes/intranet.png";
 
 export const assets = {
     icons: {
@@ -32,13 +38,19 @@ export const assets = {
         Mrtk3: Mrtk3Svg,
         Django: DjangoSvg,
         Tailwind: TailwindSvg,
-        Aws: AwsSvg
+        Aws: AwsSvg,
+        JavaSpringBoot: JavaSpringBootSvg,
+        Drupal: DrupalSvg,
+        Angular: AngularSvg
     },
     images: {
         SnakeMeta: imgSnakeMeta,
         Hololens: imgHololens,
         TaskMaster: imgTaskMaster,
         Persona: imgPersona,
-        Default: imgDefault
+        Default: imgDefault,
+        TodoAlDia: imgTodoAlDia,
+        Salopem: imgSalopem,
+        Intranet: imgIntranet
     }
 };

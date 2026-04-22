@@ -126,6 +126,24 @@ export default function Navbar() {
                 <div className="hidden lg:flex flex-col gap-6 mt-auto">
                     <SocialLinks />
                     
+                    <a 
+                        href="/Johan_Monroy_CV.pdf"
+                        download="Johan_Monroy_CV.pdf"
+                        className={`flex items-center gap-3 w-fit px-4 py-2 rounded-full border transition-all duration-300 ${
+                        darkMode 
+                            ? 'border-gray-700 text-gray-400 hover:text-blue-400 hover:border-blue-400' 
+                            : 'border-gray-300 text-gray-600 hover:text-blue-600 hover:border-blue-600'
+                        }`}
+                        aria-label="Descargar CV"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        <span className="text-xs font-bold uppercase tracking-widest">
+                            Descargar CV
+                        </span>
+                    </a>
+                    
                     <button 
                         onClick={toggleDarkMode}
                         className={`flex items-center gap-3 w-fit px-4 py-2 rounded-full border transition-all duration-300 ${
@@ -157,6 +175,19 @@ export default function Navbar() {
                         {item.label}
                       </button>
                   ))}
+                  
+                  <a 
+                    href="/Johan_Monroy_CV.pdf"
+                    download="Johan_Monroy_CV.pdf"
+                    className={`flex items-center gap-2 w-full text-left py-3 px-4 rounded-lg mt-2 transition-colors ${
+                        darkMode ? 'hover:bg-gray-800 text-gray-400' : 'hover:bg-gray-100 text-gray-600'
+                    }`}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    Descargar CV
+                  </a>
                 </div>
             </div>
         </header>

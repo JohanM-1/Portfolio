@@ -1,13 +1,102 @@
 [
   {
-    "role": "Desarrollador de Software",
+    "role": "Desarrollador Full Stack",
     "company": "Factoryim",
     "period": "07.2024 - Actual",
-    "description": [
-      "CulturaClick: Plataforma de gestión de contenidos con el reto de integrar procesos de pago y flujos editoriales complejos en un entorno administrativo. Se diseñaron soluciones personalizadas para automatizar notificaciones, estructurar contenido dinámico y garantizar consistencia en la visualización de la información. El resultado fue una plataforma más estable, flexible y fácil de administrar, desarrollada bajo metodología Scrum en colaboración con un desarrollador senior.",
-      "Knowms: Proyecto orientado a la administración de contenidos donde el principal desafío fue mantener y extender funcionalidades existentes sin afectar la operación del sistema. Se trabajó en la adaptación de módulos, soporte al backoffice y resolución de incidencias, asegurando estabilidad, continuidad del servicio y control de versiones mediante buenas prácticas.",
-      "Intranet: Plataforma corporativa sometida a validación funcional con el reto de garantizar flujos de autenticación seguros y una correcta gestión de roles y permisos. Se ejecutaron pruebas exhaustivas, se documentaron incidencias y se validaron mejoras, incrementando la confiabilidad del sistema para los usuarios internos.",
-      "Salopem: Plataforma ecommerce evaluada antes de su lanzamiento, enfrentando el reto de detectar fallos críticos en flujos de compra y pago. Se realizaron pruebas funcionales y de validación de datos, permitiendo identificar errores clave y asegurar una salida a producción estable y confiable."
+    "description": [],
+    "proyectos": [
+      {
+        "nombre": "CulturaClick",
+        "tipo": "Gestión de contenidos",
+        "descripcion": "Plataforma de gestión de contenidos con Processes de pago y flujos editoriales complejos.",
+        "habilidades": [
+          "Desarrollo de módulos custom en Drupal",
+          "Integración de pasarelas de pago",
+          "APIs REST y JSON:API",
+          "Autenticación JWT",
+          "Automatización de notificaciones",
+          "Metodología Scrum"
+        ],
+        "valor": "Plataforma más estable, flexible y fácil de administrar para el equipo editorial."
+      },
+      {
+        "nombre": "Knowms",
+        "tipo": "Administración de contenidos",
+        "descripcion": "Sistema de gestión de contenidos con mantenimiento y extensión de funcionalidades.",
+        "habilidades": [
+          "Mantenimiento de módulos existentes",
+          "Soporte técnico y backoffice",
+          "Control de versiones (Git)",
+          "Resolución de incidencias",
+          "Documentación técnica"
+        ],
+        "valor": "Estabilidad operativa y continuidad del servicio sin interrupciones."
+      },
+      {
+        "nombre": "Intranet Cofrem",
+        "tipo": "Plataforma corporativa",
+        "descripcion": "Plataforma corporativa con autenticación segura y gestión de roles.",
+        "habilidades": [
+          "Google OAuth 2.0",
+          "Gestión de roles y permisos",
+          "Pruebas funcionales E2E",
+          "Validación de seguridad"
+        ],
+        "valor": "Sistema confiable y seguro para usuarios internos."
+      },
+      {
+        "nombre": "Salopem",
+        "tipo": "Ecommerce",
+        "descripcion": "Plataforma ecommerce evaluada antes de lanzamiento.",
+        "habilidades": [
+          "Testing funcional",
+          "Validación de flujos de compra",
+          "Verificación de procesos de pago",
+          "QA y control de calidad"
+        ],
+        "valor": "Lanzamiento estable y sin errores críticos."
+      }
+    ]
+  },
+  {
+    "role": "Desarrollador Flutter - Proyectos Personales",
+    "company": "Proyectos independiente",
+    "period": "2024 - Actual",
+    "description": [],
+    "proyectos": [
+      {
+        "nombre": "TodoAlDía",
+        "tipo": "App financiera personal",
+        "descripcion": "Aplicación financiera con entrada por voz.",
+        "habilidades": [
+          "Arquitectura Clean / Hexagonal",
+          "Offline-first / Local-first",
+          "Drift (SQLite) base de datos local",
+          "Cache y persistencia local",
+          "State management (BLoC)",
+          "Voice recognition",
+          "Gestión de estado offline",
+          "Publicación en stores (Play Store)",
+          "Mantenimiento post-lanzamiento",
+          "Lectura de logs y debugging",
+          "Identificación y resolución de bugs"
+        ],
+        "valor": "App funcional sin conexión, datos locales seguros, experiencia fluida."
+      },
+      {
+        "nombre": "Meta Snake",
+        "tipo": "App identificación serpientes",
+        "descripcion": "Aplicación móvil full-stack con autenticación.",
+        "habilidades": [
+          "FastAPI backend",
+          "PostgreSQL",
+          "Firebase Auth",
+          "Google Sign In",
+          "Geolocalización",
+          "Modo offline"
+        ],
+        "valor": "App multiplataforma con autenticación segura y funcionamiento offline."
+      }
     ]
   },
   {
