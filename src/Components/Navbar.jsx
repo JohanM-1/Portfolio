@@ -9,6 +9,7 @@ export default function Navbar() {
     const { darkMode, toggleDarkMode } = useTheme();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('sobre-mi');
+    const cvUrl = `${import.meta.env.BASE_URL}Johan_Monroy_CV%20(1).pdf`;
 
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
@@ -127,8 +128,8 @@ export default function Navbar() {
                     <SocialLinks />
                     
                     <a 
-                        href="/Johan_Monroy_CV.pdf"
-                        download="Johan_Monroy_CV.pdf"
+                        href={cvUrl}
+                        download="Johan_Monroy_CV (1).pdf"
                         className={`flex items-center gap-3 w-fit px-4 py-2 rounded-full border transition-all duration-300 ${
                         darkMode 
                             ? 'border-gray-700 text-gray-400 hover:text-blue-400 hover:border-blue-400' 
@@ -177,8 +178,8 @@ export default function Navbar() {
                   ))}
                   
                   <a 
-                    href="/Johan_Monroy_CV.pdf"
-                    download="Johan_Monroy_CV.pdf"
+                    href={cvUrl}
+                    download="Johan_Monroy_CV (1).pdf"
                     className={`flex items-center gap-2 w-full text-left py-3 px-4 rounded-lg mt-2 transition-colors ${
                         darkMode ? 'hover:bg-gray-800 text-gray-400' : 'hover:bg-gray-100 text-gray-600'
                     }`}
