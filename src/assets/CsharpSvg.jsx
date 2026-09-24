@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 export default function CsharpSvg({ className = "w-6 h-6" }) {
   return (
     <svg 

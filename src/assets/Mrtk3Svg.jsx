@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 export default function Mrtk3Svg({ className = "w-6 h-6" }) {
   return (
     <svg 

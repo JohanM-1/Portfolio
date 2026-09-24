@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import { useTheme } from "../context/ThemeContext";
-import GithubSvg from "../assets/GithubSvg";
 import ProyectoModal from "./ProyectoModal";
 
 export default function Proyecto({

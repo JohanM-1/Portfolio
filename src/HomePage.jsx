@@ -1,12 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import AnimatedCursor from "react-animated-cursor";
 import Navbar from "./Components/Navbar"
 import Bienvenida from "./Components/Bienvenida"
-import Icons from "./Components/Icons"
 import Proyecto from "./Components/Proyecto"
 import { useTheme } from "./context/ThemeContext";
 import Experiencia from "./Components/Experiencia"
-import proyectosData from "./data/proyectos.json";
 import proyectosPortfolio from "./data/proyectos_portfolio.json";
 import { assets } from "./data/assetsMap";
 import SocialLinks from "./Components/SocialLinks";
@@ -14,21 +12,15 @@ import TechSelector from "./Components/TechSelector";
 
 export default function HomePage() {
     const { darkMode } = useTheme();
-    const [showCursor, setShowCursor] = useState(false);
+    // Solo mostrar cursor personalizado en dispositivos que soportan hover (mouse)
+    // y no en móviles/tablets para evitar problemas de UX y compatibilidad
+    const [showCursor] = useState(() => window.matchMedia("(pointer: fine)").matches);
     const [tecnologiaSeleccionada, setTecnologiaSeleccionada] = useState("flutter");
     
     // Get projects for selected technology
     const techData = proyectosPortfolio.tecnologias.find(t => t.id === tecnologiaSeleccionada);
     const proyectosFiltrados = techData?.proyectos || [];
 
-    useEffect(() => {
-        // Solo mostrar cursor personalizado en dispositivos que soportan hover (mouse)
-        // y no en móviles/tablets para evitar problemas de UX y compatibilidad
-        const isDesktop = window.matchMedia("(pointer: fine)").matches;
-        setShowCursor(isDesktop);
-    }, []);
-
-    const CodeIcon = assets.icons.Code;
 
     return (
         <div className="relative min-h-screen">
