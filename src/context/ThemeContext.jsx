@@ -116,16 +116,15 @@ function ThemeBackground({ darkMode }) {
     }, [darkMode]); // Reiniciar si cambia el modo (para actualizar colores)
 
     return (
-        <div className="fixed inset-0 -z-10 overflow-hidden">
-            {/* Gradiente principal */}
-            <div className={`absolute inset-0 ${
-                darkMode 
-                    ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900' 
-                    : 'bg-gradient-to-br from-blue-100 via-white to-indigo-100'
+        <div className="fixed inset-0 -z-10 overflow-hidden" aria-hidden="true">
+            {/* Gradientes de ambos temas superpuestos: el cambio de tema hace un fundido suave */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-white to-indigo-100"></div>
+            <div className={`absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 transition-opacity duration-700 ease-out ${
+                darkMode ? 'opacity-100' : 'opacity-0'
             }`}></div>
-            
-            {/* Canvas para el efecto de humo optimizado */}
-            <canvas 
+
+            {/* Canvas para el efecto de humo */}
+            <canvas
                 ref={canvasRef}
                 className="absolute inset-0 w-full h-full pointer-events-none"
             />
@@ -142,25 +141,28 @@ function ThemeBackground({ darkMode }) {
 
 export function ThemeProvider({ children }) {
     const [darkMode, setDarkMode] = useState(() => {
-        const savedTheme = localStorage.getItem('theme');
-        return savedTheme === 'dark';
+        try {
+            return localStorage.getItem('theme') === 'dark';
+        } catch {
+            return false;
+        }
     });
 
     useEffect(() => {
-        if (darkMode) {
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
+        document.documentElement.classList.toggle('dark', darkMode);
+        document.documentElement.style.colorScheme = darkMode ? 'dark' : 'light';
+        try {
+            localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+        } catch {
+            // Almacenamiento bloqueado (modo privado, etc.)
         }
     }, [darkMode]);
 
-    const toggleDarkMode = () => setDarkMode(!darkMode);
+    const toggleDarkMode = () => setDarkMode(d => !d);
 
     return (
         <ThemeContext.Provider value={{ darkMode, toggleDarkMode }}>
-            <div className={`min-h-screen ${darkMode ? 'text-white' : 'text-black'}`}>
+            <div className={`min-h-screen transition-colors duration-500 ${darkMode ? 'text-white' : 'text-black'}`}>
                 <ThemeBackground darkMode={darkMode} />
                 {children}
             </div>

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import { useTheme } from "../context/ThemeContext";
 import ThemeDark from "../assets/themeDark";
 import ThemeLight from "../assets/themeLight";
@@ -26,6 +27,24 @@ export default function Navbar() {
         return () => sections.forEach(section => observer.unobserve(section));
     }, []);
 
+    // Ícono de tema con transición de giro al cambiar
+    const themeIcon = (size) => (
+        <span className={`relative inline-grid place-items-center ${size}`}>
+            <AnimatePresence mode="popLayout" initial={false}>
+                <motion.span
+                    key={darkMode ? "light" : "dark"}
+                    className="inline-grid place-items-center"
+                    initial={{ rotate: -90, scale: 0.5, opacity: 0 }}
+                    animate={{ rotate: 0, scale: 1, opacity: 1 }}
+                    exit={{ rotate: 90, scale: 0.5, opacity: 0 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                >
+                    {darkMode ? <ThemeLight className={size} /> : <ThemeDark className={size} />}
+                </motion.span>
+            </AnimatePresence>
+        </span>
+    );
+
     const scrollToSection = (sectionId) => {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -47,7 +66,7 @@ export default function Navbar() {
             ${darkMode 
                 ? 'bg-gray-900/95 lg:bg-transparent border-b border-gray-700 lg:border-none' 
                 : 'bg-white/95 lg:bg-transparent border-b border-gray-200 lg:border-none shadow-sm lg:shadow-none'
-            } backdrop-blur-sm lg:backdrop-blur-none z-50 fixed top-0 w-full lg:static`}>
+            } backdrop-blur-sm lg:backdrop-blur-none z-50 fixed top-0 left-0 w-full lg:static`}>
             
             <div className="h-full lg:flex lg:flex-col lg:justify-between px-6 py-4 lg:px-0">
                 
@@ -109,15 +128,19 @@ export default function Navbar() {
                           } transition-colors duration-200`}
                           aria-label="Toggle theme"
                         >
-                          {darkMode ?  <ThemeLight className="w-6 h-6" /> : <ThemeDark className="w-6 h-6 " />}
+                          {themeIcon("w-6 h-6")}
                         </button>
 
                         <button 
                           onClick={() => setIsMenuOpen(!isMenuOpen)}
-                          className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+                          className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
+                          aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
+                          aria-expanded={isMenuOpen}
                         >
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round">
+                            <motion.line x1="4" x2="20" initial={false} animate={isMenuOpen ? { y1: 18, y2: 6 } : { y1: 6, y2: 6 }} transition={{ duration: 0.25 }} />
+                            <motion.line x1="4" y1="12" x2="20" y2="12" initial={false} animate={{ opacity: isMenuOpen ? 0 : 1 }} transition={{ duration: 0.15 }} />
+                            <motion.line x1="4" x2="20" initial={false} animate={isMenuOpen ? { y1: 6, y2: 18 } : { y1: 18, y2: 18 }} transition={{ duration: 0.25 }} />
                           </svg>
                         </button>
                     </div>
@@ -154,7 +177,7 @@ export default function Navbar() {
                         }`}
                         aria-label="Toggle theme"
                     >
-                        {darkMode ?  <ThemeLight className="w-5 h-5" /> : <ThemeDark className="w-5 h-5 " />}
+                        {themeIcon("w-5 h-5")}
                         <span className="text-xs font-bold uppercase tracking-widest">
                             {darkMode ? 'Light' : 'Dark'}
                         </span>
@@ -162,7 +185,17 @@ export default function Navbar() {
                 </div>
 
                 {/* Menú móvil desplegable */}
-                <div className={`${isMenuOpen ? 'block' : 'hidden'} lg:hidden px-4 pb-4 bg-inherit border-t ${darkMode ? 'border-gray-800' : 'border-gray-100'}`}>
+                <AnimatePresence initial={false}>
+                {isMenuOpen && (
+                <motion.div
+                  key="mobile-menu"
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                  className={`lg:hidden overflow-hidden border-t ${darkMode ? 'border-gray-800' : 'border-gray-100'}`}
+                >
+                <div className="px-4 pb-4">
                   {navItems.map((item) => (
                       <button 
                         key={item.id}
@@ -190,6 +223,9 @@ export default function Navbar() {
                     Descargar CV
                   </a>
                 </div>
+                </motion.div>
+                )}
+                </AnimatePresence>
             </div>
         </header>
     )

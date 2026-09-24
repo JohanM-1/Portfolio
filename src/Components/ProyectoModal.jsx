@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { useTheme } from "../context/ThemeContext";
 import GithubSvg from "../assets/GithubSvg";
@@ -5,6 +6,24 @@ import { createPortal } from "react-dom";
 
 export default function ProyectoModal({ isOpen, setIsOpen, proyecto }) {
   const { darkMode } = useTheme();
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+    // Bloquea el scroll del fondo compensando el ancho de la barra para evitar saltos
+    const { overflow, paddingRight } = document.body.style;
+    const scrollbar = window.innerWidth - document.documentElement.clientWidth;
+    document.body.style.overflow = "hidden";
+    if (scrollbar > 0) document.body.style.paddingRight = `${scrollbar}px`;
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = overflow;
+      document.body.style.paddingRight = paddingRight;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [isOpen, setIsOpen]);
 
   if (typeof document === 'undefined') return null;
 
@@ -15,20 +34,25 @@ export default function ProyectoModal({ isOpen, setIsOpen, proyecto }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[9999] flex items-center justify-center p-4 backdrop-blur-sm bg-black/50 cursor-none" 
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          className="fixed inset-0 z-[9999] flex items-center justify-center p-4 backdrop-blur-sm bg-black/50" 
           onClick={() => setIsOpen(false)}
         >
           <motion.div 
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.8, opacity: 0 }}
-            transition={{ type: "spring", duration: 0.5, bounce: 0.3 }}
-            className={`relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl p-6 shadow-2xl ${darkMode ? 'bg-gray-800 text-gray-100' : 'bg-white text-gray-900'} cursor-none`}
+            role="dialog"
+            aria-modal="true"
+            aria-label={proyecto.titulo}
+            initial={{ scale: 0.96, opacity: 0, y: 24 }}
+            animate={{ scale: 1, opacity: 1, y: 0, transition: { type: "spring", stiffness: 320, damping: 30 } }}
+            exit={{ scale: 0.97, opacity: 0, y: 12, transition: { duration: 0.18, ease: "easeIn" } }}
+            className={`relative w-full max-w-4xl max-h-[90vh] overflow-y-auto overscroll-contain rounded-xl p-6 shadow-2xl ${darkMode ? 'bg-gray-800 text-gray-100' : 'bg-white text-gray-900'}`}
             onClick={e => e.stopPropagation()}
           >
             <button 
               onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              aria-label="Cerrar"
+              autoFocus
+              className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-[background-color,transform] duration-300 hover:rotate-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -137,7 +161,8 @@ export default function ProyectoModal({ isOpen, setIsOpen, proyecto }) {
                                         {etapa.technologies.map((tech, i) => (
                                             <motion.span 
                                                 key={i} 
-                                                whileHover={{ scale: 1.2 }}
+                                                whileHover={{ y: -2, scale: 1.05 }}
+                                                transition={{ type: "spring", stiffness: 400, damping: 20 }}
                                                 className={`text-xs px-2 py-1 rounded inline-block cursor-default ${darkMode ? 'bg-gray-600 text-gray-300' : 'bg-gray-200 text-gray-700'}`}
                                             >
                                                 {tech}

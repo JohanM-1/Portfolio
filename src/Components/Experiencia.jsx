@@ -1,4 +1,5 @@
 import { useTheme } from "../context/ThemeContext";
+import Reveal from "./Reveal";
 import experienciaData from "../data/experiencia.json";
 
 export default function Experiencia() {
@@ -7,7 +8,7 @@ export default function Experiencia() {
     return (
         <div className="space-y-10">
             {experienciaData.map((exp, index) => (
-                <div key={index}>
+                <Reveal key={index}>
                     {/* Header */}
                     <div className="flex justify-between items-start flex-wrap gap-2 mb-6">
                         <div>
@@ -23,8 +24,10 @@ export default function Experiencia() {
                     {exp.proyectos && exp.proyectos.length > 0 && (
                         <div className="space-y-4">
                             {exp.proyectos.map((proyecto, pIndex) => (
-                                <div 
-                                    key={pIndex} 
+                                <Reveal
+                                    key={pIndex}
+                                    y={16}
+                                    delay={Math.min(pIndex * 0.06, 0.3)}
                                     className={`relative pl-4 border-l-2 transition-colors duration-300 ${
                                         darkMode 
                                             ? 'border-blue-500/50 hover:border-blue-500' 
@@ -74,7 +77,7 @@ export default function Experiencia() {
                                             ✓ {proyecto.valor}
                                         </div>
                                     )}
-                                </div>
+                                </Reveal>
                             ))}
                         </div>
                     )}
@@ -87,7 +90,7 @@ export default function Experiencia() {
                             ))}
                         </ul>
                     )}
-                </div>
+                </Reveal>
             ))}
         </div>
     );

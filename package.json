@@ -17,7 +17,6 @@
     "blendy": "^0.0.1",
     "motion": "^12.39.0",
     "react": "^19.2.6",
-    "react-animated-cursor": "^2.11.2",
     "react-dom": "^19.2.6"
   },
   "devDependencies": {
@@ -37,11 +36,7 @@
   },
   "overrides": {
     "flatted": "^3.4.0",
-    "picomatch": "^2.3.2",
-    "react-animated-cursor": {
-      "react": "$react",
-      "react-dom": "$react-dom"
-    }
+    "picomatch": "^2.3.2"
   },
   "homepage": "https://JohanM-1.github.io/Portfolio"
 }

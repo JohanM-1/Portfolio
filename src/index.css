@@ -2,19 +2,81 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 
-  Asegurar que el cursor nativo sea visible por defecto.
-  La librería react-animated-cursor sobrescribe esto automáticamente
-  cuando se carga correctamente. Si falla (Brave, NoScript, Móvil),
-  este estilo prevalecerá o asegurará visibilidad.
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Deja espacio para la barra fija en móvil al saltar a una sección */
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+@media (min-width: 1024px) {
+  section[id] {
+    scroll-margin-top: 0;
+  }
+}
+
+/*
+  Cursor personalizado.
+  El cursor nativo solo se oculta cuando el componente CustomCursor está
+  montado (añade .has-custom-cursor al <html>). Si el JS falla, está
+  bloqueado o es un dispositivo táctil, el cursor nativo sigue visible.
 */
-body, a, button, input {
-  cursor: auto;
+html.has-custom-cursor,
+html.has-custom-cursor * {
+  cursor: none !important;
+}
+
+/* En campos de texto se mantiene el I-beam nativo */
+html.has-custom-cursor input:not([type="button"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]),
+html.has-custom-cursor textarea,
+html.has-custom-cursor [contenteditable="true"] {
+  cursor: text !important;
+}
+
+.custom-cursor {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2147483647;
+  contain: strict;
+}
+
+.custom-cursor__ring,
+.custom-cursor__dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 9999px;
+  pointer-events: none;
+  will-change: transform, opacity;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.custom-cursor__ring {
+  width: 36px;
+  height: 36px;
+  margin: -18px 0 0 -18px;
+  border: 2px solid transparent;
+}
+
+.custom-cursor__dot {
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
 }
 
 @media (pointer: coarse) {
-  /* En dispositivos táctiles, forzar cursor nativo siempre */
-  * {
-    cursor: auto !important;
+  .custom-cursor {
+    display: none;
   }
 }

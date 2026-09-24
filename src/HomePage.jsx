@@ -1,5 +1,7 @@
 import { useState } from "react";
-import AnimatedCursor from "react-animated-cursor";
+import { AnimatePresence, motion } from "motion/react";
+import CustomCursor from "./Components/CustomCursor";
+import Reveal from "./Components/Reveal";
 import Navbar from "./Components/Navbar"
 import Bienvenida from "./Components/Bienvenida"
 import Proyecto from "./Components/Proyecto"
@@ -12,9 +14,6 @@ import TechSelector from "./Components/TechSelector";
 
 export default function HomePage() {
     const { darkMode } = useTheme();
-    // Solo mostrar cursor personalizado en dispositivos que soportan hover (mouse)
-    // y no en móviles/tablets para evitar problemas de UX y compatibilidad
-    const [showCursor] = useState(() => window.matchMedia("(pointer: fine)").matches);
     const [tecnologiaSeleccionada, setTecnologiaSeleccionada] = useState("flutter");
     
     // Get projects for selected technology
@@ -24,38 +23,7 @@ export default function HomePage() {
 
     return (
         <div className="relative min-h-screen">
-            {showCursor && (
-                <AnimatedCursor
-                    innerSize={8}
-                    outerSize={35}
-                    innerScale={1}
-                    outerScale={2}
-                    outerAlpha={0}
-                    hasBlendMode={true}
-                    outerStyle={{
-                        border: `3px solid ${darkMode ? 'rgba(255, 255, 255, 0.5)' : 'rgba(0, 0, 0, 0.5)'}`,
-                        zIndex: 10000
-                    }}
-                    innerStyle={{
-                        backgroundColor: darkMode ? 'rgba(255, 255, 255, 0.9)' : 'rgba(0, 0, 0, 0.9)',
-                        zIndex: 10000
-                    }}
-                    clickables={[
-                        'a',
-                        'input[type="text"]',
-                        'input[type="email"]',
-                        'input[type="number"]',
-                        'input[type="submit"]',
-                        'input[type="image"]',
-                        'label[for]',
-                        'select',
-                        'textarea',
-                        'button',
-                        '.link',
-                        '.cursor-pointer'
-                    ]}
-                />
-            )}
+            <CustomCursor />
 
             <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
                 <div className="lg:flex lg:justify-between lg:gap-4">
@@ -71,19 +39,31 @@ export default function HomePage() {
 
                             {/* Sección Experiencia */}
                             <section id="experiencia" className="px-4 py-24 min-h-[50vh]">
-                                <h2 className={`text-3xl md:text-4xl font-bold ${darkMode ? 'text-gray-100' : 'text-gray-900'} mb-12 flex items-center gap-4`}>
+                                <Reveal as="h2" className={`text-3xl md:text-4xl font-bold ${darkMode ? 'text-gray-100' : 'text-gray-900'} mb-12 flex items-center gap-4`}>
                                     Experiencia
-                                    <div className={`h-px bg-gray-700 flex-grow max-w-xs ml-4 ${darkMode ? 'bg-gray-700' : 'bg-gray-300'}`}></div>
-                                </h2>
+                                    <motion.div
+                                        initial={{ scaleX: 0 }}
+                                        whileInView={{ scaleX: 1 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                                        className={`h-px flex-grow max-w-xs ml-4 origin-left ${darkMode ? 'bg-gray-700' : 'bg-gray-300'}`}
+                                    ></motion.div>
+                                </Reveal>
                                 <Experiencia />
                             </section>
 
                             {/* Sección Proyectos */}
                             <section id="proyectos" className="px-4 py-24">
-                                <h2 className={`text-3xl md:text-4xl font-bold ${darkMode ? 'text-gray-100' : 'text-gray-900'} mb-12 flex items-center gap-4`}>
+                                <Reveal as="h2" className={`text-3xl md:text-4xl font-bold ${darkMode ? 'text-gray-100' : 'text-gray-900'} mb-12 flex items-center gap-4`}>
                                     Proyectos
-                                    <div className={`h-px bg-gray-700 flex-grow max-w-xs ml-4 ${darkMode ? 'bg-gray-700' : 'bg-gray-300'}`}></div>
-                                </h2>
+                                    <motion.div
+                                        initial={{ scaleX: 0 }}
+                                        whileInView={{ scaleX: 1 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                                        className={`h-px flex-grow max-w-xs ml-4 origin-left ${darkMode ? 'bg-gray-700' : 'bg-gray-300'}`}
+                                    ></motion.div>
+                                </Reveal>
                                 
                                 {/* Tech Selector */}
                                 <TechSelector 
@@ -92,32 +72,53 @@ export default function HomePage() {
                                     setTecnologiaSeleccionada={setTecnologiaSeleccionada}
                                 />
                                 
-                                <div className="space-y-12">
-                                    {proyectosFiltrados.map((proj, index) => (
-                                        <Proyecto
-                                            key={index}
-                                            titulo={proj.title}
-                                            descripcion={proj.description}
-                                            imgsrc={assets.images[proj.imageKey] || assets.images.Default}
-                                            videsrc={proj.videoSrc}
-                                            frontendLink={proj.links?.frontend}
-                                            backendLink={proj.links?.backend}
-                                            fullStackLink={proj.links?.fullStack}
-                                            previewLink={proj.links?.preview}
-                                            techIcons={proj.techIcons.map(tech => ({
-                                                Component: assets.icons[tech.key],
-                                                name: tech.name
-                                            }))}
-                                            etapas={proj.stages}
-                                            habilidades={proj.habilidades || []}
-                                            valor={proj.valor || ""}
-                                        />
-                                    ))}
-                                </div>
+                                <AnimatePresence mode="wait" initial={false}>
+                                    <motion.ul
+                                        key={tecnologiaSeleccionada}
+                                        className="group/list"
+                                        initial="hidden"
+                                        animate="show"
+                                        exit="exit"
+                                        variants={{
+                                            hidden: {},
+                                            show: { transition: { staggerChildren: 0.07 } },
+                                            exit: { opacity: 0, y: -8, transition: { duration: 0.15, ease: "easeIn" } },
+                                        }}
+                                    >
+                                        {proyectosFiltrados.map((proj) => (
+                                            <motion.li
+                                                key={proj.title}
+                                                variants={{
+                                                    hidden: { opacity: 0, y: 16 },
+                                                    show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } },
+                                                }}
+                                            >
+                                                <Proyecto
+                                                    titulo={proj.title}
+                                                    descripcion={proj.description}
+                                                    imgsrc={assets.images[proj.imageKey] || assets.images.Default}
+                                                    videsrc={proj.videoSrc}
+                                                    frontendLink={proj.links?.frontend}
+                                                    backendLink={proj.links?.backend}
+                                                    fullStackLink={proj.links?.fullStack}
+                                                    previewLink={proj.links?.preview}
+                                                    techIcons={proj.techIcons.map(tech => ({
+                                                        Component: assets.icons[tech.key],
+                                                        name: tech.name
+                                                    }))}
+                                                    etapas={proj.stages}
+                                                    habilidades={proj.habilidades || []}
+                                                    valor={proj.valor || ""}
+                                                />
+                                            </motion.li>
+                                        ))}
+                                    </motion.ul>
+                                </AnimatePresence>
                             </section>
                             
                             {/* Sección Contacto (Footer) */}
                             <section id="contacto" className="px-4 py-24 text-center max-w-2xl mx-auto">
+                                <Reveal>
                                 <p className="font-mono text-blue-500 mb-4">¿Qué sigue?</p>
                                 <h2 className={`text-4xl md:text-5xl font-bold ${darkMode ? 'text-gray-100' : 'text-gray-900'} mb-6`}>
                                     Contacto
@@ -132,14 +133,15 @@ export default function HomePage() {
 
                                 <a 
                                     href="mailto:johan16231@gmail.com"
-                                    className={`inline-block px-8 py-4 rounded border font-mono text-sm transition-all duration-300 ${
+                                    className={`inline-block px-8 py-4 rounded border font-mono text-sm transition-[background-color,transform,box-shadow] duration-300 hover:-translate-y-0.5 active:translate-y-0 ${
                                         darkMode 
-                                            ? 'border-blue-500 text-blue-500 hover:bg-blue-500/10' 
-                                            : 'border-blue-600 text-blue-600 hover:bg-blue-50'
+                                            ? 'border-blue-500 text-blue-500 hover:bg-blue-500/10 hover:shadow-[0_6px_20px_-6px_rgba(59,130,246,0.5)]' 
+                                            : 'border-blue-600 text-blue-600 hover:bg-blue-50 hover:shadow-[0_6px_20px_-6px_rgba(37,99,235,0.45)]'
                                     }`}
                                 >
                                     Saludar
                                 </a>
+                                </Reveal>
                             </section>
                         </div>
                     </main>
